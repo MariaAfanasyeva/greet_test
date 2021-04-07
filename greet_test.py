@@ -1,5 +1,5 @@
 import pytest
-from req1 import greet
+from greet import greet
 
 
 def test_greet():
