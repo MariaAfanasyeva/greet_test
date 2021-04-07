@@ -1,3 +1,6 @@
-def greet(name):
-    string = 'Hello, ' + str(name)
+def greet(name=None):
+    if name is None:
+        string = 'Hello, my friend'
+    else:
+        string = 'Hello, ' + str(name)
     return string
