@@ -13,3 +13,6 @@ def test_empty_greet():
 def test_isupper():
     assert greet("HARRY") == "HELLO, HARRY"
 
+
+def test_two_names():
+    assert greet('John', 'Any') == 'Hello, John and Any'
