@@ -15,4 +15,7 @@ def test_isupper():
 
 
 def test_two_names():
-    assert greet('John', 'Any') == 'Hello, John and Any'
+    assert greet('John', 'Any') == "Hello, John and Any"
+    assert greet('John', 4) == "Wrong input"
+    assert greet(5) == "Wrong input"
+
