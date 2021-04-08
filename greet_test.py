@@ -10,3 +10,6 @@ def test_empty_greet():
     assert greet() == "Hello, my friend"
 
 
+def test_isupper():
+    assert greet("HARRY") == "HELLO, HARRY"
+
