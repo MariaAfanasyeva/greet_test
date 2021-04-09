@@ -14,3 +14,8 @@ def test_empty_greet():
 def test_isupper():
     assert greet("HARRY") == "HELLO, HARRY"
 
+
+@pytest.mark.parametrize("expected, test_input1, test_input2", [("Hello, John and Any", "John", "Any"), ("Wrong input",
+                                                                                                         "John", 4)])
+def test_two_names(expected, test_input1, test_input2):
+    assert greet(test_input1, test_input2) == expected

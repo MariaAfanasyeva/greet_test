@@ -1,13 +1,19 @@
-def greet(name=None):
-    if name is None:
+def greet(*names):
+    if len(names) == 0:
         string = 'Hello, my friend'
+        return string
     else:
-        if isinstance(name, str):
-            if name.isupper():
-                string = 'HELLO, ' + name
+        for name in names:
+            if not isinstance(name, str):
+                string = 'Wrong input'
+                return string
+        if len(names) == 1:
+            if names[0].isupper():
+                string = 'HELLO, ' + names[0]
             else:
-                string = 'Hello, ' + name
+                string = 'Hello, ' + names[0]
         else:
-            string = 'Wrong input'
+            string = 'Hello, ' + names[0] + ' and ' + names[1]
     return string
+
 
