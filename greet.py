@@ -17,5 +17,3 @@ def greet(*names):
     return string
 
 
-
-
