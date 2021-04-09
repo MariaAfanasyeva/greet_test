@@ -52,9 +52,3 @@ def greet(*names):
             string += 'AND ' + shouted_string
     return string
 
-
-greeting = greet("JOHN", "Mary", 'Jake')
-print(greeting)
-
-
-
