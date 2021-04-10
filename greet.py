@@ -3,8 +3,7 @@ def list_handle(names_list, names_list_len, is_uppercase: bool):
         greeting_string = 'HELLO'
     else:
         greeting_string = 'Hello'
-    i = 1
-    for name in names_list:
+    for i, name in enumerate(names_list, 1):
         if i == names_list_len and names_list_len != 1:
             if is_uppercase:
                 greeting_string += f" AND {name}!"
@@ -17,7 +16,6 @@ def list_handle(names_list, names_list_len, is_uppercase: bool):
                 greeting_string += f", {name}."
         else:
             greeting_string += f", {name}"
-        i += 1
     return greeting_string
 
 
