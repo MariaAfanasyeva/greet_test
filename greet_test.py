@@ -3,7 +3,7 @@ from greet import greet
 
 
 def test_greet():
-    assert greet("Vasya") == "Hello, Vasya"
+    assert greet("Vasya") == "Hello, Vasya."
 
 
 @pytest.mark.parametrize("inp1, inp2, exception", [("John", 4, ValueError), (4, 5, ValueError)])
@@ -17,7 +17,7 @@ def test_empty_greet():
 
 
 def test_isupper():
-    assert greet("HARRY") == "HELLO, HARRY"
+    assert greet("HARRY") == "HELLO, HARRY!"
 
 
 def test_two_names():
