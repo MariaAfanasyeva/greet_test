@@ -38,4 +38,24 @@ def test_four_names(inp1, inp2, inp3, inp4, expected):
     assert greet(inp1, inp2, inp3, inp4) == expected
 
 
+@pytest.mark.parametrize("inp1, inp2, inp3, expected", [("Mary", "James", "John", "Hello, Mary, James and John."),
+                                                        ("Mary, James", "John", "David", "Hello, Mary, James, John and "
+                                                                                         "David."),
+                                                        ("MARY, DAVID", "James", "Ronald", "Hello, James and Ronald.AND"
+                                                                                           " HELLO, MARY AND DAVID!"),
+                                                        ("MARY, DAVID", "JOHN", "JAMES", "HELLO, MARY, DAVID, JOHN AND "
+                                                                                         "JAMES!")
+                                                        ])
+def test_with_comma(inp1, inp2, inp3, expected):
+    assert greet(inp1, inp2, inp3) == expected
+
+
+@pytest.mark.parametrize("inp1, inp2, inp3, expected", [("Mary, James", "Fred", "\"Harry, Hermione\"",
+                                                         "Hello, Mary, James, Fred and Harry, Hermione."),
+                                                        ("Mary", "James", "\"HERMIONE, HARRY\"",
+                                                         "Hello, Mary and James.AND HELLO, HERMIONE, HARRY!")])
+def test_with_escaped_comma(inp1, inp2, inp3, expected):
+    assert greet(inp1, inp2, inp3) == expected
+
+
 

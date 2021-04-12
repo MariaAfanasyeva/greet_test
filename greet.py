@@ -1,3 +1,13 @@
+import re
+
+
+def add_to_names_list(name, upper_list, title_list):
+    if name.isupper():
+        upper_list.append(name)
+    else:
+        title_list.append(name)
+
+
 def list_handle(names_list, names_list_len, is_uppercase: bool):
     if is_uppercase:
         greeting_string = 'HELLO'
@@ -29,10 +39,18 @@ def greet(*names):
     for name in names:
         if not isinstance(name, str):
             raise ValueError("Wrong input")
-        if name.isupper():
-            shouted_names.append(name)
+        is_escaped = re.findall(r'\"', name)
+        if len(is_escaped) == 0:
+            comma_number = name.find(',')
+            if comma_number != -1:
+                names_with_comma = re.split(', |,', name)
+                for name_with_comma in names_with_comma:
+                    add_to_names_list(name_with_comma, shouted_names, simple_names)
+            else:
+                add_to_names_list(name, shouted_names, simple_names)
         else:
-            simple_names.append(name)
+            name = name.strip("\"")
+            add_to_names_list(name, shouted_names, simple_names)
     simple_names_len = len(simple_names)
     shouted_names_len = len(shouted_names)
     answer = ''
